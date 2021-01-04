@@ -3,10 +3,12 @@ import arviz as az
 
 likelihood_ca19_9 = 0.25
 likelihood_fna = 0.11
+alpha = 5
+beta = 5
 
 with pm.Model() as model:
     #pre_test prob 1
-    p_1 = pm.Beta('p_1',alpha=9,beta=1)
+    p_1 = pm.Beta('p_1',alpha=alpha,beta=alpha)
     o_1 = pm.Deterministic('o_1',(p_1/(1-p_1)))
     l_ca19_9 = pm.HalfNormal('l_ca19_9',sigma=likelihood_ca19_9)
 
