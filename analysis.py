@@ -4,8 +4,11 @@ import numpy as np
 
 likelihood_ca19_9 = 0.25
 likelihood_fna = 0.11
-alpha = 9
-beta = 1
+certainty = 1
+alpha = 9*certainty
+beta = 1*certainty
+mean_prior = alpha/(alpha+beta)
+var_prior = (alpha*beta)/(np.power(alpha+beta,2)*(alpha+beta+1))
 
 with pm.Model() as model:
     #pre_test prob 1
