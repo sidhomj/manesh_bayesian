@@ -1,5 +1,6 @@
 import pymc3 as pm
 import arviz as az
+import numpy as np
 
 likelihood_ca19_9 = 0.25
 likelihood_fna = 0.11
@@ -28,6 +29,7 @@ az.plot_trace(model_trace,var_names=['p_1','l_ca19_9','p_2'])
 az.plot_trace(model_trace,var_names=['p_2','l_fna','p_3'])
 az.plot_trace(model_trace,var_names=['p_1','p_2','p_3'])
 
-
+np.mean(model_trace['p_3'])
+np.percentile(model_trace['p_3'],90)
 
 
